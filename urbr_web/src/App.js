@@ -1,7 +1,7 @@
 
 function App() {
   return (
-    <div>Hello wolrd</div>
+    <div> wolrd</div>   
   );
 }
 export default App;
