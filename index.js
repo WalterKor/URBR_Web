@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const config = require('./config/key');
 const {User} = require('./models/User');
 
 
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //Json형태분석해서 가져옴
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://walter:everglow95@todoapp.hudxb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
+mongoose.connect(config.mongoURI ,{
     useNewUrlParser: true, 
 }).then(()=> console.log('MongoDB Connected')).catch(err => console.log(err));
 
