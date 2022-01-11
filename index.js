@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('./config/key');
+const bcrypt = require('bcrypt');
 const {User} = require('./models/User');
 
 
@@ -27,7 +28,7 @@ app.post('/join', (req, res)=>{
     //req.body Json형식으로 들어있다. 
 
     const user = new User(req.body);
-    
+        
     user.save((err, userInfo)=>{
         if(err) return res.json({ success: false, err})
         return res.status(200).json({
